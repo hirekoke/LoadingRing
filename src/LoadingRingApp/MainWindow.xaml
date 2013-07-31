@@ -1,0 +1,68 @@
+﻿<Window x:Class="LoadingRingApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ring="clr-namespace:LoadingRing;assembly=LoadingRing"
+        Title="MainWindow" Height="412" Width="409">
+
+    <Window.Resources>
+        <Style TargetType="ring:LoadingDottedRing">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Height" Value="80" />
+        </Style>
+        <Style TargetType="ring:LoadingSolidRing">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Height" Value="80" />
+        </Style>
+        <Style TargetType="ring:LoadingArc">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Height" Value="80" />
+        </Style>
+    </Window.Resources>
+
+    <StackPanel Orientation="Vertical">
+
+        <StackPanel Orientation="Horizontal">
+            <ring:LoadingDottedRing Text="1" Name="hoge" />
+
+            <ring:LoadingDottedRing Text="2"
+                                    Count="24"
+                                    Duration="3"
+                                    IsLoading="True"
+                                    RingFill="LightGray"
+                                    RingStroke="Black"
+                                    Foreground="Red" />
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <ring:LoadingSolidRing Text="3" />
+
+            <ring:LoadingSolidRing Text="4"
+                                   RingFill="White"
+                                   Foreground="White" Background="Black" />
+
+            <ring:LoadingSolidRing Text="5"
+                                   AngleGap="10" Count="10" RingRatio="0.6"
+                                   RingStroke="DarkBlue">
+                <ring:LoadingSolidRing.RingFill>
+                    <ImageBrush ImageSource="/LoadingRingApp;component/Resources/RingImage.bmp"
+                                Stretch="UniformToFill" TileMode="Tile" />
+                </ring:LoadingSolidRing.RingFill>
+            </ring:LoadingSolidRing>
+
+            <ring:LoadingSolidRing Text="6"
+                                   AngleGap="0" Count="60" RingRatio="0.8" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <ring:LoadingArc Text="7" />
+            <ring:LoadingArc Text="8" 
+                             Angle="60" Round="True" Duration="2"
+                             Background="Black" Foreground="White"
+                             RingFill="Gray" RingStroke="LightGray" />
+        </StackPanel>
+    </StackPanel>
+</Window>

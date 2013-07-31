@@ -1,0 +1,4 @@
+/src/*.suo
+/src/LoadingRing/bin
+obj
+bin
